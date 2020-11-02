@@ -21,10 +21,14 @@ RUN mkdir -p $HOME && \
 RUN apk add wget tar
 
 RUN wget https://github.com/substicious/mcbds-element0-linux/blob/main/tar/bds-1.16.40.02.tar.xz && \
-    mv bds-1.16.40.02.tar.xz $SERVER/bds.tar.xz
+    mv bds-1.16.40.02.tar.xz $SERVER/bds.tar.xz && \
+    wget https://github.com/substicious/mcbds-element0-linux/blob/main/tar/elementzero.tar.xz && \
+    mv elementzero.tar.xz $SERVER/elementzero.tar.xz
 
 RUN tar -xf $SERVER/bds.tar.xz -C $SERVER && \
-    rm -rf $SERVER/bds.tar.xz
+    rm -rf $SERVER/bds.tar.xz && \
+    tar -xf $SERVER/elementzero.tar.xz -C $SERVER && \
+    rm -rf $SERVER/elementzero.tar.xz
 
 RUN apk del wget tar
 
