@@ -6,9 +6,9 @@ if [ ! -f "$HOME/installed.txt" ]; then
 
   cp $SERVER/Lib $MODS
 
-  mv $SERVER/server.properties $DEFCONF
-  mv $SERVER/whitelist.json $DEFCONF
-  mv $SERVER/permissions.json $DEFCONF
+  cp $SERVER/server.properties $DEFCONF
+  cp $SERVER/whitelist.json $DEFCONF
+  cp $SERVER/permissions.json $DEFCONF
   touch $DEFCONF/custom.yaml $DEFCONF/configuration.json
 
   ln -sb $CONF/configuration.json $SERVER/configuration.json
@@ -61,5 +61,5 @@ if [ ! -f "$HOME/installed.txt" ]; then
   touch $HOME/installed.txt
 
 fi
-
+chmod -X $SERVER/vellum
 exec "./vellum"
