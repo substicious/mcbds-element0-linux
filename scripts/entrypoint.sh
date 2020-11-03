@@ -4,6 +4,13 @@ if [ ! -f "$HOME/installed.txt" ]; then
 
   cp -R $DEFCONF/* $CONF
 
+  cp $SERVER/Lib $MODS
+
+  mv $SERVER/server.properties $DEFCONF
+  mv $SERVER/whitelist.json $DEFCONF
+  mv $SERVER/permissions.json $DEFCONF
+  touch $DEFCONF/custom.yaml $DEFCONF/configuration.json
+
   ln -sb $CONF/configuration.json $SERVER/configuration.json
   ln -sb $CONF/custom.yaml $SERVER/custom.yaml
   ln -sb $CONF/permissions.json $SERVER/permissions.json
